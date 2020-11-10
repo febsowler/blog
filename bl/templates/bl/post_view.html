@@ -1,0 +1,18 @@
+{% extends 'main.html' %}
+{% block title %} 
+	{{ postsmodels.title_post }} 
+{% endblock %}
+			<!-- <div class="image" style="background-image: url(https://64.media.tumblr.com/ed12ef00704cd0e2ed2e1ce29dabe172/tumblr_ndyz3zz4nI1tu9tubo1_1280.jpg); background-size: cover; background-position: center;"></div> -->
+
+{% block content %}
+<div class="article-content">
+	<div class="post-block">
+			<div class="image" style="background-image: url({{ postsmodels.image.url }}); background-size: cover; background-position: center;"></div>
+		
+		<div class="content-text">
+			<h1> {{ postsmodels.title_post }} </h1>
+			<p> {{ postsmodels.text_post }} </p>
+		</div>
+	</div>
+</div>
+{% endblock %}

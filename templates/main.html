@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="{% static 'css/style.css' %}">
+	<script src="https://kit.fontawesome.com/62881ed709.js" crossorigin="anonymous"></script>
+	<title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+	<div id="wrapper" class="wrapper">
+		<header class="header">
+			<div class="container">
+				<div class="header__row">
+					<div class="menu__icon icon-menu">
+						<span></span>
+						<nav class="menu__body">
+							<ul class="menu">
+								<li><a href="/" class="menu__link">Главная</a></li>
+								<li><a href="/blogs/" class="menu__link">Блоги</a></li>
+								<li><a href="/about/" class="menu__link">О нас</a></li>
+								{% if request.user.is_authenticated %}
+									<li><a href="/logout/" class="menu__link">Выйти ({{ request.user }})</a></li>
+								{% else %}
+									<li><a href="/login/" class="menu__link">Вход</a></li>
+								{% endif %}
+							</ul>
+						</nav>
+					</div>
+				</div>
+			</div>
+		</header>
+		<main class="page">
+			<div class="container">
+				{% block content %}Empty page{% endblock %}
+			</div>
+		</main>
+	</div>
+</body>	
+</html>

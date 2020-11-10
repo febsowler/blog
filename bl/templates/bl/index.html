@@ -1,0 +1,15 @@
+{% extends 'main.html' %}
+
+{% block title %}Блог{% endblock %}
+{% block content %}
+<div class="content">
+	{% for el in infposts %}
+	<div class="post-block">
+		<a href="/post/{{ el.id }}">
+			<div class="image" style="background-image: url({{ el.image.url }}); background-size: cover; background-position: center;"></div>
+			<h1> {{ el.title_post }} </h1>
+			<p> {{ el.text_post }} </p>
+		</a>
+	</div>{% endfor %}
+</div>
+{% endblock %}
